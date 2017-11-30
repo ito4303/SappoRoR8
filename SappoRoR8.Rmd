@@ -1,0 +1,54 @@
+---
+title: |
+  | R Markdownとbeamerで
+  | プレゼンテーション資料作成
+# "|" で強制改行
+subtitle: "SappoRo.R #8 @ 北海学園大学"
+author: "伊東宏樹"
+date: "2018-02-24"
+output:
+  beamer_presentation:
+    latex_engine: lualatex  # lualatexを使用
+    keep_tex: true          # texソースをのこす
+    includes:
+      in_header: header.tex # header.texをよみこむ
+mainfont: NotoSansCJKjp     # NotoSansCJKjpフォントを使用
+sansfont: NotoSansCJKjp
+monofont: NotoSansMonoCJKjp
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Rmdヘッダ
+```
+title: |
+  | R Markdownとbeamerで
+  | プレゼンテーション資料作成
+# "|" で強制改行
+subtitle: "SappoRo.R #8 @ 北海学園大学"
+author: "伊東宏樹"
+date: "2018-02-24"
+output:
+  beamer_presentation:
+    latex_engine: lualatex  # lualatexを使用
+    keep_tex: true          # texソースをのこす
+    includes:
+      in_header: header.tex # header.texをよみこむ
+mainfont: NotoSansCJKjp     # NotoSansCJKjpフォントを使用
+sansfont: NotoSansCJKjp
+monofont: NotoSansMonoCJKjp
+```
+
+## header.tex
+```
+%% Japanese font
+\usepackage{luatexja}
+\usepackage[noto-otf,deluxe]{luatexja-preset}
+\setmainjfont{NotoSansCJKjp}
+
+%% Title font size
+\setbeamerfont{title}{size=\huge}
+```
+
