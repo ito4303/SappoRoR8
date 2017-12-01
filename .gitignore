@@ -34,5 +34,7 @@ vignettes/*.pdf
 *.knit.md
 .Rproj.user
 
-SappoRoR8.tex
-SappoRoR8.pdf
+rmd_beamer.tex
+rmd_beamer.pdf
+rmd_beamer_files/
+

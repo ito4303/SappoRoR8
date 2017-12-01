@@ -1,0 +1,131 @@
+---
+title: |
+  | R Markdownとbeamerで
+  | プレゼンテーション資料作成
+subtitle: "SappoRo.R #8 @ 北海学園大学"
+author: "伊東宏樹"
+date: "2018-02-24"
+output:
+  beamer_presentation:
+    latex_engine: lualatex  # lualatexを使用
+    keep_tex: true          # texソースをのこす
+    includes:
+      in_header: header.tex # header.texをよみこむ
+#mainfont: NotoSansCJKjp
+#monofont: NotoSansMonoCJKjp
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## ありがとうぞうさん
+
+SappoRo.R #6: 
+R Markdownによるスライド生成
+
+http://kazutan.github.io/SappoRoR6/rmd_slide.html
+
+## なやみどころのメモ
+
+- LaTeXでの日本語フォントの設定
+- Rから出力される図のサイズ
+    - `fig.width`, `fig.height`, `out.width`, `out.height`
+- Rから出力されるグラフィックの形式
+    - `dev="pdf"`では日本語フォントが埋めこまれない
+        - `dev="cairo_pdf"`
+        - `dev="png"`で解像度をあげて(`dpi=200`)出力
+- この設定は何に対する設定?
+    - knitr
+    - pandoc
+    - LaTeX
+
+## yamlヘッダ
+```
+knitrへの設定
+---
+output:
+  beamer_presentation:
+    latex_engine: lualatex  # lualatexを使用
+    keep_tex: true          # texソースをのこす
+    includes:
+      in_header: header.tex # header.texをよみこむ
+---
+```
+
+## header.tex
+LaTeXへの設定
+```
+%% Japanese font
+\usepackage{luatexja}
+\usepackage[noto-otf,deluxe]{luatexja-preset}
+\setmainjfont{NotoSansCJKjp}
+
+%% Title font size
+\setbeamerfont{title}{size=\huge}
+```
+
+## フォント
+
+yamlヘッダ
+```
+#mainfont: NotoSansCJKjp
+```
+
+header.tex
+```
+%\setmainjfont{NotoSansCJKjp}
+```
+
+yamlヘッダよりLaTeXヘッダ優先
+
+
+## テスト
+
+_italic_
+
+__bold__
+
+**太字**
+
+## Rでグラフ
+```{r, include=FALSE}
+library(ggplot2)
+```
+
+はみでる
+```{r, echo=TRUE}
+p <- ggplot(data = iris,
+            mapping = aes(x = Sepal.Length, y = Sepal.Width,
+                          colour = Species)) +
+  geom_point()
+print(p)
+```
+
+## チャンクでのオプション指定
+
+knitr > Chunk options and package options (Yihui Xieさん)
+
+https://yihui.name/knitr/options/#plots
+
+## サイズ調整
+チャンクオプションで`fig.width=5, fig.height=3`を指定
+```{r, fig.width=5, fig.height=3, echo=FALSE}
+print(p)
+```
+
+
+## 日本語フォント
+チャンクオプションで、 `dev="cairo_pdf"`を指定
+```{r, fig.width=5, fig.height=2.5, dev="cairo_pdf", echo=TRUE}
+p + labs(x = "萼の長さ", y = "萼の幅") +
+  theme_grey(base_family = "IPAexGothic")
+```
+
+## まとめ
+>- CSSの知識があれば、reveal.jsの方が楽かも。
+>- でも、なんとかなる
+>- いったん設定ができてしまえば、あとは楽？
+
+
+

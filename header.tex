@@ -1,7 +1,19 @@
-%% Japanese font
-\usepackage{luatexja}
-\usepackage[noto-otf,deluxe]{luatexja-preset}
-\setmainjfont{NotoSansCJKjp}
+%% Fonts
+\usepackage{fontspec}
+%\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setmainfont[Ligatures=TeX]{TeXGyreHeros}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+%\setmonofont{Inconsolatazi4}
+\setmonofont{NotoSansMonoCJKjp} % Notoフォント使用
 
-%% Title font size
-\setbeamerfont{title}{size=\huge}
+%% Japanese font
+%\usepackage{luatexja}
+\usepackage{luatexja-otf}
+\usepackage[noto-otf,deluxe]{luatexja-preset} % Notoフォント使用
+\setmainjfont{NotoSansCJKjp} % メインフォントもゴシックに
+\setsansjfont{NotoSansCJKjp}
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+%%
+\setbeamerfont{title}{size=\huge, series=\bfseries}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
