@@ -11,6 +11,7 @@ output:
     keep_tex: true          # texソースをのこす
     includes:
       in_header: header.tex # header.texをよみこむ
+    fig_caption: false
 #mainfont: NotoSansCJKjp
 #monofont: NotoSansMonoCJKjp
 ---
@@ -21,29 +22,41 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## ありがとうぞうさん
 
-SappoRo.R #6: 
-R Markdownによるスライド生成
+![](kazutan_SappoRoR8.png){width=50%}
+
+SappoRo.R #6: R Markdownによるスライド生成（前田さん）
 
 http://kazutan.github.io/SappoRoR6/rmd_slide.html
+
+## その後
+
+>- revealjsをためてしてみた
+    - なかなかよかった
+
+>- beamer（単体）はつかったことがある
+
+>- 次はR Markdown+beamerでやってみよう
 
 ## なやみどころのメモ
 
 - LaTeXでの日本語フォントの設定
+- この設定は何に対する設定?
+    - knitr
+    - pandoc
+    - LaTeX
 - Rから出力される図のサイズ
     - `fig.width`, `fig.height`, `out.width`, `out.height`
 - Rから出力されるグラフィックの形式
     - `dev="pdf"`では日本語フォントが埋めこまれない
         - `dev="cairo_pdf"`
         - `dev="png"`で解像度をあげて(`dpi=200`)出力
-- この設定は何に対する設定?
-    - knitr
-    - pandoc
-    - LaTeX
+
 
 ## yamlヘッダ
+knitrの設定だが、`output:`はpandocへ渡される？
 ```
-knitrへの設定
 ---
+...
 output:
   beamer_presentation:
     latex_engine: lualatex  # lualatexを使用
@@ -56,13 +69,18 @@ output:
 ## header.tex
 LaTeXへの設定
 ```
-%% Japanese font
-\usepackage{luatexja}
-\usepackage[noto-otf,deluxe]{luatexja-preset}
-\setmainjfont{NotoSansCJKjp}
+\usepackage{fontspec}
+%\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setmainfont[Ligatures=TeX]{TeXGyreHeros}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+%\setmonofont{Inconsolatazi4}
+\setmonofont{NotoSansMonoCJKjp} % Notoフォント使用
 
-%% Title font size
-\setbeamerfont{title}{size=\huge}
+%% Japanese font
+\usepackage{luatexja-otf}
+\usepackage[noto-otf,deluxe]{luatexja-preset} % Notoフォント使用
+\setmainjfont{NotoSansCJKjp} % メインフォントもNotoSansに
+\setsansjfont{NotoSansCJKjp}
 ```
 
 ## フォント
@@ -125,6 +143,7 @@ p + labs(x = "萼の長さ", y = "萼の幅") +
 ## まとめ
 >- CSSの知識があれば、reveal.jsの方が楽かも。
 >- でも、なんとかなる
+>- 先人の知恵を活用する
 >- いったん設定ができてしまえば、あとは楽？
 
 
