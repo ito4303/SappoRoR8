@@ -1,10 +1,14 @@
+\usepackage{amsmath}
+
 %% Fonts
+\usepackage{cmbright}
 \usepackage{fontspec}
 %\setmainfont[Ligatures=TeX]{TeXGyreTermes}
 \setmainfont[Ligatures=TeX]{TeXGyreHeros}
 \setsansfont[Ligatures=TeX]{TeXGyreHeros}
 %\setmonofont{Inconsolatazi4}
 \setmonofont{NotoSansMonoCJKjp} % Notoフォント使用
+\usefonttheme[onlymath]{serif}
 
 %% Japanese font
 %\usepackage{luatexja}
@@ -17,3 +21,11 @@
 %%
 \setbeamerfont{title}{size=\huge, series=\bfseries}
 \setbeamerfont{frametitle}{size=\large, series=\bfseries}
+
+%% https://tex.stackexchange.com/questions/62202/change-background-colour-of-verbatim-environment
+\usepackage{color}
+\let\oldv\verbatim
+\let\oldendv\endverbatim
+\def\verbatim{\par\setbox0\vbox\bgroup\oldv}
+\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.9}{\usebox0}\par}
+
