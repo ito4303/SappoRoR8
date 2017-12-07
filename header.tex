@@ -1,31 +1,31 @@
-\usepackage{amsmath}
-
 %% Fonts
-\usepackage{cmbright}
+\usepackage{arev}
+\usefonttheme[onlymath]{serif}
 \usepackage{fontspec}
 %\setmainfont[Ligatures=TeX]{TeXGyreTermes}
-\setmainfont[Ligatures=TeX]{TeXGyreHeros}
-\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmainfont{TeXGyreHeros}
+\setsansfont{TeXGyreHeros}
 %\setmonofont{Inconsolatazi4}
-\setmonofont{NotoSansMonoCJKjp} % Notoフォント使用
-\usefonttheme[onlymath]{serif}
+\setmonofont{NotoSansMonoCJKjp}
 
 %% Japanese font
-%\usepackage{luatexja}
 \usepackage{luatexja-otf}
-\usepackage[noto-otf,deluxe]{luatexja-preset} % Notoフォント使用
-\setmainjfont{NotoSansCJKjp} % メインフォントもNotoSansに
-\setsansjfont{NotoSansCJKjp}
-%\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usepackage[match,deluxe,expert,noto-otf]{luatexja-preset} % Notoフォント使用
+\renewcommand{\kanjifamilydefault}{\gtdefault}
 
 %%
 \setbeamerfont{title}{size=\huge, series=\bfseries}
 \setbeamerfont{frametitle}{size=\large, series=\bfseries}
 
 %% https://tex.stackexchange.com/questions/62202/change-background-colour-of-verbatim-environment
-\usepackage{color}
 \let\oldv\verbatim
 \let\oldendv\endverbatim
 \def\verbatim{\par\setbox0\vbox\bgroup\oldv}
 \def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.9}{\usebox0}\par}
+
+%% https://stackoverflow.com/questions/38323331/code-chunk-font-size-in-beamer-with-knitr-and-latex
+%% change fontsize of R code
+\let\oldShaded\Shaded
+\let\endoldShaded\endShaded
+\renewenvironment{Shaded}{\small\oldShaded}{\endoldShaded}
 
