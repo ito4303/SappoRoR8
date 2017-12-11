@@ -20,7 +20,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## ありがとうぞうさん
 
-![](kazutan_SappoRoR8.png){width=50%}
+\begin{center}
+\includegraphics[width=6cm]{kazutan_SappoRoR8.png}
+\end{center}
 
 SappoRo.R #6: R Markdownによるスライド生成（前田さん）
 
@@ -105,6 +107,32 @@ header.tex
 ```
 
 yamlヘッダよりLaTeXヘッダが優先されるらしい。
+
+## 欧文フォントのサイズ
+
+なんだか欧文フォントのサイズが小さい。
+
+\begin{center}
+\includegraphics{without-arev.pdf}
+\end{center}
+
+
+
+## なぜか改善
+
+数式フォントをサンセリフにするため、arevパッケージをつかったら、大きくなった。
+
+\begin{center}
+\includegraphics{with-arev.pdf}
+\end{center}
+
+本来は、下のようにすればよいらしい。
+
+```
+\setmainfont[Scale=1.03]{TeXGyreHeros}
+\setsansfont[Scale=1.03]{TeXGyreHeros}
+```
+
 
 ## luatexjaの設定
 
