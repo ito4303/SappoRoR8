@@ -7,6 +7,7 @@ author: "伊東宏樹"
 date: "2018-02-24"
 output:
   beamer_presentation:
+    theme: default          # テーマ
     latex_engine: lualatex  # lualatexを使用
     keep_tex: true          # texソースをのこす
     includes:
@@ -48,6 +49,19 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 - \Large RStudio
 - \Large TeXLive 2017 (MacTeX 2017)
 
+## 使用方法{.fragile}
+
+ふつうにR Markdown
+
+```
+## タイトル
+
+内容
+内容
+
+```
+
+<!--
 ## なやみどころのメモ
 
 - LaTeXでの日本語フォントの設定
@@ -61,22 +75,22 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
     - `dev="pdf"`では日本語フォントが埋めこまれない
         - `dev="cairo_pdf"`ならOK
         - `dev="png"`で解像度をあげて(`dpi=200`)出力も
+-->
 
-
-## yamlヘッダ
+## yamlヘッダでの設定{.fragile}
 knitrの設定だが、`output:`はpandocへ渡される?
-```
----
-…（中略）…
+
+\begin{lstlisting}
 output:
   beamer_presentation:
-    latex_engine: lualatex  # lualatexを使用
-    keep_tex: true          # TeXソースをのこす
+    theme: default           # テーマ
+    latex_engine: lualatex   # lualatexを使用
+    keep_tex: true           # TeXソースをのこす
     includes:
-      in_header: header.tex # header.texをよみこむ
----
-```
+      in_header: header.tex  # header.texをよみこむ
+\end{lstlisting}
 
+<!--
 ## header.tex
 LaTeXへの設定
 ```
@@ -92,63 +106,88 @@ LaTeXへの設定
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 ```
+-->
 
-## フォント
+## 日本語フォントの設定{.fragile}
 
-yamlヘッダ
-```
+yamlヘッダで
+\begin{lstlisting}
 mainfont: NotoSansCJKjp
-```
+\end{lstlisting}
+などとするか、
 
-header.tex
-```
+in-headerで指定したファイルで
+
+\begin{lstlisting}[language=TeX]
+\usepackage{luatexja-otf}
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
-```
+\end{lstlisting}
 
-yamlヘッダよりLaTeXヘッダが優先されるらしい。
+などとして、フォントの設定をするとよいみたい。
+
+- yamlヘッダよりLaTeXヘッダが優先されるようだ。
 
 ## 欧文フォントのサイズ
 
 なんだか欧文フォントのサイズが小さい。
 
 \begin{center}
-\includegraphics{without-arev.pdf}
+\fbox{\includegraphics{without-arev.pdf}}
 \end{center}
 
 
 
-## なぜか改善
+## なぜか改善{.fragile}
 
 数式フォントをサンセリフにするため、arevパッケージをつかったら、大きくなった。
 
 \begin{center}
-\includegraphics{with-arev.pdf}
+\fbox{\includegraphics{with-arev.pdf}}
 \end{center}
 
 本来は、下のようにすればよいらしい。
-
-```
+\begin{lstlisting}[language=TeX]
 \setmainfont[Scale=1.03]{TeXGyreHeros}
 \setsansfont[Scale=1.03]{TeXGyreHeros}
-```
+\end{lstlisting}
 
 
 ## luatexjaの設定
 
 luatexjaの公式ドキュメントがくわしい（当然）。
 
+- コマンドラインから`texdoc luatexja`
+
+または
+
 - http://mirrors.ctan.org/macros/luatex/generic/luatexja/doc/luatexja-ja.pdf
 
-## 数式
+## fragile関係のエラー{.fragile}
+
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+! Illegal parameter number in definition of \beamer@doifinframe.
+\end{Verbatim}
+といったエラーが出るとき
+（LaTeXのfancyvrbパッケージのVerbatim環境をつかったときなど）
+
+タイトルのあとに`{.fragile}`をつける。
+```
+## タイトル{.fragile}
+
+……
+
+```
+
+## 数式{.fragile}
 
 LaTeXなので、数式は問題なし。RStudioではプレビューも表示される。
 
-```
+\begin{lstlisting}[language=TeX]
 $$ \Pr(x \mid \mu, \sigma) =
 \frac{1}{\sqrt{2\pi}\sigma}
 \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right) $$
-```
+\end{lstlisting}
 
 $$ \Pr(x \mid \mu, \sigma) =
 \frac{1}{\sqrt{2\pi}\sigma}

@@ -21,12 +21,20 @@
 \let\oldv\verbatim
 \let\oldendv\endverbatim
 \def\verbatim{\par\setbox0\vbox\bgroup\oldv}
-\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.9}{\usebox0}\par}
+\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox[gray]{0.95}{\usebox0}\par}
 
 %% https://stackoverflow.com/questions/38323331/code-chunk-font-size-in-beamer-with-knitr-and-latex
 %% change fontsize of R code
 \let\oldShaded\Shaded
-\let\endoldShaded\endShaded
+\let\endoldShaded\endShaded 
 \renewenvironment{Shaded}{\small\oldShaded}{\endoldShaded}
 
-%\usepackage{listings}
+\usepackage{listings}
+\lstset{%
+  frame = shadow,
+  backgroundcolor = {\color[gray]{.95}},
+  basicstyle = {\small\ttfamily},
+  breaklines = true
+}
+
+\usepackage{fancyvrb}
