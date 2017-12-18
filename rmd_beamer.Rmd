@@ -34,15 +34,25 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 >- \Large revealjsをためてしてみた
     - \Large なかなかよかった
 
->- \Large beamer（単体）はつかったことがある
+>- \Large 次はR Markdown + Beamerでやってみよう
 
->- \Large 次はR Markdown+beamerでやってみよう
+## Beamerとは
 
+\Large LaTeXでプレゼンテーションファイル(PDF)を作成するパッケージ
+
+## R Markdown + Beamer
+
+\begin{center}
+\includegraphics[width=9cm]{NewRmd.png}
+\end{center}
+
+<!--
 ## なぜR Markdown
 
 - \Large RStudioで完結
 - \Large 作業を自動化
 - \Large コピー&ペーストを撲滅
+-->
 
 ## 用意したもの
 
@@ -80,7 +90,7 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 ## yamlヘッダでの設定{.fragile}
 knitrの設定だが、`output:`はpandocへ渡される?
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle={\footnotesize\ttfamily}]
 output:
   beamer_presentation:
     theme: default           # テーマ
@@ -88,6 +98,7 @@ output:
     keep_tex: true           # TeXソースをのこす
     includes:
       in_header: header.tex  # header.texをよみこむ
+    fig_caption: false
 \end{lstlisting}
 
 <!--
@@ -146,7 +157,7 @@ in-headerで指定したファイルで
 \fbox{\includegraphics{with-arev.pdf}}
 \end{center}
 
-本来は、下のようにすればよいらしい。
+本来は、in_headerで指定したファイルで、下のようにすればよいらしい。
 \begin{lstlisting}[language=TeX]
 \setmainfont[Scale=1.03]{TeXGyreHeros}
 \setsansfont[Scale=1.03]{TeXGyreHeros}
