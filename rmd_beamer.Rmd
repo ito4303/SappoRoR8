@@ -19,6 +19,17 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## 自己紹介
+
+- Twitter: @monotropastrum
+
+- Blog: http://ito-hi.blog.so-net.ne.jp/
+
+- GitHub: https://github.com/ito4303
+    - \small 今回の資料 https://github.com/ito4303/SappoRoR8
+
+- researchmap: https://researchmap.jp/read0208767/
+
 ## ありがとうぞうさん
 
 \begin{center}
@@ -141,7 +152,7 @@ in-headerで指定したファイルで
 
 ## 欧文フォントのサイズ
 
-なんだか欧文フォントのサイズが小さい。
+なんだか欧文フォント(TeXGyreHeros)のサイズが小さい。
 
 \begin{center}
 \fbox{\includegraphics{without-arev.pdf}}
@@ -149,19 +160,23 @@ in-headerで指定したファイルで
 
 
 
-## なぜか改善{.fragile}
+## 改善{.fragile}
 
-数式フォントをサンセリフにするため、arevパッケージをつかったら、大きくなった。
+TeXGyreHerosフォントはデフォルトでは`scale=0.95`なので（美文書第7版）、
+`in_header`で指定したファイルで、下のようにすればよい。
+\begin{lstlisting}[language=TeX]
+\setmainfont[Scale=1.0]{TeXGyreHeros}
+\setsansfont[Scale=1.0]{TeXGyreHeros}
+\end{lstlisting}
 
 \begin{center}
 \fbox{\includegraphics{with-arev.pdf}}
 \end{center}
 
-本来は、in_headerで指定したファイルで、下のようにすればよいらしい。
-\begin{lstlisting}[language=TeX]
-\setmainfont[Scale=1.03]{TeXGyreHeros}
-\setsansfont[Scale=1.03]{TeXGyreHeros}
-\end{lstlisting}
+しかし今回は，数式フォントをサンセリフにするため、arevパッケージをつかったら、
+なぜかTeXGyreHerosも大きくなった。
+
+
 
 
 ## luatexjaの設定
