@@ -227,7 +227,7 @@ library(ggplot2)
 ```
 
 しかし、デフォルトでは はみでる。
-```{r, size="small",echo=TRUE}
+```{r fig,size="small",echo=TRUE}
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width,
                       colour = Species)) + geom_point()
 print(p)
@@ -241,15 +241,15 @@ print(p)
     - https://yihui.name/knitr/options/#plots
 
 ## サイズ調整
-チャンクオプションで`fig.width=5, fig.height=3`を指定した。
-```{r, fig.width=5, fig.height=3, echo=FALSE}
+チャンクオプションで`fig.width=6,fig.height=4`と`out.height="7cm"`を指定した。
+```{r fig_size,fig.width=6,fig.height=4,out.height="7cm",echo=FALSE}
 print(p)
 ```
 
 
 ## 日本語フォント
 チャンクオプションで、 `dev="cairo_pdf"`を指定した。
-```{r, fig.width=5, fig.height=2, dev="cairo_pdf", echo=TRUE}
+```{r fig_font,fig.width=4,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
 p + labs(x = "萼の長さ", y = "萼の幅") +
   scale_colour_discrete(name = "種",
                         labels = c("ヒオウギアヤメ", 
