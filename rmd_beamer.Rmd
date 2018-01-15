@@ -137,18 +137,17 @@ yamlヘッダで
 mainfont: NotoSansCJKjp
 \end{lstlisting}
 などとするか、
-
+あるいは
 in-headerで指定したファイルで
-
 \begin{lstlisting}[language=TeX]
 \usepackage{luatexja-otf}
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \end{lstlisting}
-
 などとして、フォントの設定をするとよいみたい。
 
-- yamlヘッダよりLaTeXヘッダが優先されるようだ。
+- 上のyamlヘッダは`\setmainfont[]{NotoSansCJKjp}`に変換される。
+- LaTeXヘッダの方は日本語フォントを指定している。
 
 ## 欧文フォントのサイズ
 
