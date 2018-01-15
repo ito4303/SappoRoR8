@@ -98,19 +98,27 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
         - `dev="png"`で解像度をあげて(`dpi=200`)出力も
 -->
 
-## yamlヘッダでの設定{.fragile}
-knitrの設定だが、`output:`はpandocへ渡される?
+## yamlヘッダの設定{.fragile}
 
 \begin{lstlisting}[basicstyle={\footnotesize\ttfamily}]
+title: |
+  | R Markdownとbeamerで
+  | プレゼンテーション資料作成
+subtitle: "SappoRo.R #8 @ 北海学園大学"
+author: "伊東宏樹"
+date: "2018-02-24"
 output:
   beamer_presentation:
-    theme: default           # テーマ
-    latex_engine: lualatex   # lualatexを使用
-    keep_tex: true           # TeXソースをのこす
+    theme: default          # テーマ
+    latex_engine: lualatex  # lualatexを使用
+    keep_tex: true          # texソースをのこす
     includes:
-      in_header: header.tex  # header.texをよみこむ
+      in_header: header.tex # header.texをよみこむ
     fig_caption: false
 \end{lstlisting}
+
+title中の改行は‘|’をいれる。
+\footnotesize (https://stackoverflow.com/questions/28895109/how-can-i-force-a-line-break-in-rmarkdowns-title)
 
 <!--
 ## header.tex
@@ -197,12 +205,12 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 （LaTeXのfancyvrbパッケージのVerbatim環境をつかったときなど）
 
 タイトルのあとに`{.fragile}`をつける。
-```
+\begin{lstlisting}
 ## タイトル{.fragile}
 
 ……
 
-```
+\end{lstlisting}
 
 ## 数式{.fragile}
 
