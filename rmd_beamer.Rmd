@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## 自己紹介
+# 自己紹介
 
 - Twitter: @monotropastrum
 
@@ -30,7 +30,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - researchmap: https://researchmap.jp/read0208767/
 
-## ありがとうぞうさん
+
+# ありがとうぞうさん
 
 \begin{center}
 \includegraphics[width=6cm]{kazutan_SappoRoR8.png}
@@ -40,42 +41,48 @@ SappoRo.R #6: R Markdownによるスライド生成（前田さん）
 
 http://kazutan.github.io/SappoRoR6/rmd_slide.html
 
-## その後
+
+# その後
 
 >- \Large revealjsをためてしてみた
     - \Large なかなかよかった
 
 >- \Large 次はR Markdown + Beamerでやってみよう
 
-## Beamerとは
+# Beamerとは
 
 \Large \LaTeX でプレゼンテーションファイル(PDF)を作成するパッケージ
 
-## R Markdown + Beamer
+
+# R Markdown + Beamer
+
+新規R Markdown作成時に、
+Beamerでプレゼンテーションファイルを作成するオプションあり。
 
 \begin{center}
 \includegraphics[width=9cm]{NewRmd.png}
 \end{center}
 
 <!--
-## なぜR Markdown
+# なぜR Markdown
 
 - \Large RStudioで完結
 - \Large 作業を自動化
 - \Large コピー&ペーストを撲滅
 -->
 
-## 用意したもの
+
+# 用意したもの
 
 - \Large RStudio
 - \Large TeXLive 2017 (MacTeX 2017)
 
-## 使用方法{.fragile}
+# 使用方法{.fragile}
 
 ふつうにR Markdown
 
 ```
-## タイトル
+# タイトル
 
 内容
 内容
@@ -83,7 +90,7 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 ```
 
 <!--
-## なやみどころのメモ
+# なやみどころのメモ
 
 - LaTeXでの日本語フォントの設定
 - 設定を書くところがいくつかあるが、この設定は何に対する設定?
@@ -98,7 +105,8 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
         - `dev="png"`で解像度をあげて(`dpi=200`)出力も
 -->
 
-## yamlヘッダの設定{.fragile}
+
+# yamlヘッダの設定{.fragile}
 
 \begin{lstlisting}[basicstyle={\footnotesize\ttfamily}]
 title: |
@@ -121,7 +129,7 @@ title中の改行は‘|’をいれる。
 \footnotesize (https://stackoverflow.com/questions/28895109/how-can-i-force-a-line-break-in-rmarkdowns-title)
 
 <!--
-## header.tex
+# header.tex
 LaTeXへの設定
 ```
 \usepackage{arev}
@@ -138,7 +146,8 @@ LaTeXへの設定
 ```
 -->
 
-## 日本語フォントの設定{.fragile}
+
+# 日本語フォントの設定{.fragile}
 
 yamlヘッダで
 \begin{lstlisting}
@@ -155,7 +164,7 @@ mainfont: NotoSansCJKjp
 
 - 上のyamlヘッダは、LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
 
-## 欧文フォントのサイズ
+# 欧文フォントのサイズ
 
 なんだか欧文フォント(TeXGyreHeros)のサイズが小さい。
 
@@ -164,8 +173,7 @@ mainfont: NotoSansCJKjp
 \end{center}
 
 
-
-## 改善{.fragile}
+# 改善{.fragile}
 
 TeXGyreHerosフォントはデフォルトでは`scale=0.95`なので（美文書第7版）、
 `in_header`で指定したファイルで、下のようにすればよい。
@@ -182,9 +190,7 @@ TeXGyreHerosフォントはデフォルトでは`scale=0.95`なので（美文�
 なぜかTeXGyreHerosも大きくなった。
 
 
-
-
-## luatexjaの設定
+# luatexjaの設定
 
 luatexjaの公式ドキュメントがくわしい（当然）。
 
@@ -194,7 +200,8 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 
 - http://mirrors.ctan.org/macros/luatex/generic/luatexja/doc/luatexja-ja.pdf
 
-## fragile関係のエラー{.fragile}
+
+# fragile関係のエラー{.fragile}
 
 \begin{Verbatim}[frame=single,fontsize=\footnotesize]
 ! Illegal parameter number in definition of \beamer@doifinframe.
@@ -204,13 +211,14 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 
 **解決法:** タイトルのあとに`{.fragile}`をつける。
 \begin{lstlisting}
-## タイトル{.fragile}
+# タイトル{.fragile}
 
 ……
 
 \end{lstlisting}
 
-## 数式{.fragile}
+
+# 数式{.fragile}
 
 LaTeXなので、数式は問題なし。RStudioではプレビューも表示される。
 
@@ -228,7 +236,8 @@ LaTeXなので、数式は問題なし。RStudioではプレビューも表示�
 \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 \]
 
-## Rでグラフ
+
+# Rでグラフ
 
 Rなので、グラフも
 ```{r, include=FALSE}
@@ -242,21 +251,23 @@ p <- ggplot(iris, aes(Sepal.Length, Sepal.Width,
 print(p)
 ```
 
-## チャンクでのオプション指定
+# チャンクでのオプション指定
 
 ドキュメントをみる。
 
 - knitr > Chunk options and package options (Yihui Xieさん)
     - https://yihui.name/knitr/options/#plots
 
-## サイズ調整
+# サイズ調整
+
 チャンクオプションで`fig.width=6,fig.height=4`と`out.height="7cm"`を指定した。
 ```{r fig_size,fig.width=6,fig.height=4,out.height="7cm",echo=FALSE}
 print(p)
 ```
 
 
-## 日本語フォント
+# 日本語フォント
+
 チャンクオプションで、 `dev="cairo_pdf"`を指定した。
 ```{r fig_font,fig.width=4,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
 p + labs(x = "萼の長さ", y = "萼の幅") +
@@ -267,7 +278,7 @@ p + labs(x = "萼の長さ", y = "萼の幅") +
   theme_grey(base_family = "NotoSansCJKjp-Regular")
 ```
 
-## まとめ
+# まとめ
 >- \Large CSSの知識があれば、revealjsの方が楽かも。
 >- \Large でも、なんとかなる
 >- \Large 先人の知恵を活用する
