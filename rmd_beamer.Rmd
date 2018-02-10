@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # ありがとうぞうさん
 
 \begin{center}
-\includegraphics[width=6cm]{kazutan_SappoRoR8.png}
+\includegraphics[width=6cm]{kazutan_SappoRoR6.png}
 \end{center}
 
 SappoRo.R #6: R Markdownによるスライド生成（前田さん）
