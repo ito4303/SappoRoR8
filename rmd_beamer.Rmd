@@ -113,6 +113,19 @@ title中の改行は‘|’をいれる。
 \footnotesize (https://stackoverflow.com/questions/28895109/how-can-i-force-a-line-break-in-rmarkdowns-title)
 
 
+# 欧文フォントの設定{.fragile}
+
+\begin{lstlisting}[language=TeX]
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usefonttheme[onlymath]{serif}
+\usepackage[scale=1.0]{tgheros}
+\usepackage[scaled]{beramono}
+\end{lstlisting}
+
+fontspecを使用すると、upquoteが有効にならず、コード中の引用符が「”」に
+なってしまう。
+
 # 日本語フォントの設定{.fragile}
 
 本文にゴシック体フォントをつかうには、yamlヘッダで
@@ -144,12 +157,18 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 
 # fragile関係のエラー{.fragile}
 
-\begin{Verbatim}[frame=single]
+Verbatim環境やlstlisting環境をつかうと，
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
 ! Illegal parameter number in definition of
 \beamer@doifinframe.
 \end{Verbatim}
-といったエラーが出るとき
-（LaTeXのfancyvrbパッケージのVerbatim環境をつかったときなど）
+
+\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+! Missing \endcsname inserted.
+\end{Verbatim}
+といったエラーが出る場合がある。
+
+\vspace{12pt}
 
 **解決法:** タイトルのあとに`{.fragile}`をつける。
 \begin{lstlisting}
@@ -209,7 +228,7 @@ print(p)
 ```
 
 
-# 日本語フォント
+# グラフの日本語フォント
 
 チャンクオプションで， `dev="cairo_pdf"`を指定した。
 ```{r fig_font,fig.width=5,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
