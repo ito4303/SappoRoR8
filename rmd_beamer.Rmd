@@ -89,22 +89,6 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 
 ```
 
-<!--
-# なやみどころのメモ
-
-- LaTeXでの日本語フォントの設定
-- 設定を書くところがいくつかあるが、この設定は何に対する設定?
-    - knitr
-    - pandoc
-    - LaTeX
-- Rから出力される図のサイズ
-    - `fig.width`, `fig.height`, `out.width`, `out.height`
-- Rから出力されるグラフィックの形式
-    - `dev="pdf"`では日本語フォントが埋めこまれない
-        - `dev="cairo_pdf"`ならOK
-        - `dev="png"`で解像度をあげて(`dpi=200`)出力も
--->
-
 
 # yamlヘッダの設定{.fragile}
 
@@ -128,24 +112,6 @@ output:
 title中の改行は‘|’をいれる。
 \footnotesize (https://stackoverflow.com/questions/28895109/how-can-i-force-a-line-break-in-rmarkdowns-title)
 
-<!--
-# header.tex
-LaTeXへの設定
-```
-\usepackage{arev}
-\usefonttheme[onlymath]{serif}
-\usepackage{fontspec}
-\setmainfont{TeXGyreHeros}
-\setsansfont{TeXGyreHeros}
-\setmonofont{NotoSansMonoCJKjp}
-
-%% Japanese font
-\usepackage{luatexja-otf}
-\usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
-\renewcommand{\kanjifamilydefault}{\gtdefault}
-```
--->
-
 
 # 日本語フォントの設定{.fragile}
 
@@ -164,32 +130,8 @@ mainfont: NotoSansCJKjp
 
 - 上のyamlヘッダは、LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
 
-<!--
-# 欧文フォントのサイズ
-
-なんだか欧文フォント(TeXGyreHeros)のサイズが小さい。
-
-\begin{center}
-\fbox{\includegraphics{without-arev.pdf}}
-\end{center}
 
 
-# 改善{.fragile}
-
-TeXGyreHerosフォントはデフォルトでは`scale=0.95`なので（美文書第7版）、
-`in_header`で指定したファイルで、下のようにすればよい。
-\begin{lstlisting}[language=TeX]
-\setmainfont[Scale=1.0]{TeXGyreHeros}
-\setsansfont[Scale=1.0]{TeXGyreHeros}
-\end{lstlisting}
-
-\begin{center}
-\fbox{\includegraphics{with-arev.pdf}}
-\end{center}
-
-しかし今回は，数式フォントをサンセリフにするため、arevパッケージをつかったら、
-なぜかTeXGyreHerosも大きくなった。
--->
 
 # luatexjaの設定
 
@@ -276,8 +218,8 @@ print(p)
 spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
          "イリス・ヴァージニカ")
 p + labs(x = "萼の長さ", y = "萼の幅") +
-  scale_colour_discrete(name = "種", labels = spc) +
-  theme_grey(base_family = "NotoSansCJKjp-Regular")
+         scale_colour_discrete(name = "種", labels = spc) +
+         theme_grey(base_family = "NotoSansCJKjp-Regular")
 ```
 
 # まとめ
