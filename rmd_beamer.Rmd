@@ -205,8 +205,8 @@ print(p)
 
 # サイズ調整
 
-チャンクオプションで`fig.width=4,fig.height=3`と`out.height="5cm"`を指定した。
-```{r fig_size,fig.width=4,fig.height=3,out.height="5cm",echo=TRUE}
+チャンクオプションで`fig.width=4,fig.height=2.5`と`out.height="5cm"`を指定した。
+```{r fig_size,fig.width=4,fig.height=2.5,out.height="5cm",echo=TRUE}
 print(p)
 ```
 
@@ -214,7 +214,7 @@ print(p)
 # 日本語フォント
 
 チャンクオプションで、 `dev="cairo_pdf"`を指定した。
-```{r fig_font,fig.width=4,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
+```{r fig_font,fig.width=5,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
 spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
          "イリス・ヴァージニカ")
 p + labs(x = "萼の長さ", y = "萼の幅") +
