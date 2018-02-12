@@ -56,7 +56,7 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 
 # R Markdown + Beamer
 
-新規R Markdown作成時に、
+RStudioで，R Markdownを新規に作成するときに，
 Beamerでプレゼンテーションファイルを作成するオプションあり。
 
 \begin{center}
@@ -81,13 +81,13 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 
 ふつうにR Markdown
 
-```
+\begin{lstlisting}
 # タイトル
 
 内容
 内容
-
-```
+ :
+\end{lstlisting}
 
 
 # yamlヘッダの設定{.fragile}
@@ -115,22 +115,20 @@ title中の改行は‘|’をいれる。
 
 # 日本語フォントの設定{.fragile}
 
-yamlヘッダで
+本文にゴシック体フォントをつかうには、yamlヘッダで
 \begin{lstlisting}
 mainfont: NotoSansCJKjp
 \end{lstlisting}
-などとするか、
+などとするか（NotoSansCJKjpフォント使用の場合），
 あるいは
-`in-header`で指定したファイルでLaTeX環境の日本語フォントを指定するとよいみたい。
+`in-header`で指定したファイルで，LaTeX環境の日本語フォントを指定するとよいみたい。
 \begin{lstlisting}[language=TeX]
 \usepackage{luatexja-otf}
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \end{lstlisting}
 
-- 上のyamlヘッダは、LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
-
-
+- 上のyamlヘッダは，LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
 
 
 # luatexjaの設定
@@ -157,14 +155,14 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 \begin{lstlisting}
 # タイトル{.fragile}
 
-……
-
+内容
+内容
 \end{lstlisting}
 
 
 # 数式{.fragile}
 
-LaTeXなので、数式は問題なし。RStudioではプレビューも表示される。
+LaTeXなので，数式は問題なし。RStudioではプレビューも表示される。
 
 \begin{lstlisting}[language=TeX]
 \[
@@ -183,12 +181,12 @@ LaTeXなので、数式は問題なし。RStudioではプレビューも表示�
 
 # Rでグラフ
 
-Rなので、グラフも
+Rなので，グラフも
 ```{r,include=FALSE}
 library(ggplot2)
 ```
 
-しかし、デフォルトでは はみでる。
+しかし，デフォルトでは はみでる。
 ```{r fig,echo=TRUE}
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width,
                       colour = Species)) +
@@ -213,20 +211,20 @@ print(p)
 
 # 日本語フォント
 
-チャンクオプションで、 `dev="cairo_pdf"`を指定した。
+チャンクオプションで， `dev="cairo_pdf"`を指定した。
 ```{r fig_font,fig.width=5,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
 spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
          "イリス・ヴァージニカ")
-p + labs(x = "萼の長さ", y = "萼の幅") +
+p + labs(x = "萼の長さ(cm)", y = "萼の幅(cm)") +
          scale_colour_discrete(name = "種", labels = spc) +
          theme_grey(base_family = "NotoSansCJKjp-Regular")
 ```
 
 # まとめ
->- \Large CSSの知識があれば、revealjsの方が楽かも。
->- \Large でも、なんとかなる
+>- \Large CSSの知識があれば，revealjsの方が楽かも。
+>- \Large でも，なんとかなる
 >- \Large 先人の知恵を活用する
->- \Large いったん設定ができてしまえば、あとは楽？
+>- \Large いったん設定ができてしまえば，あとは楽？
 
 
 
