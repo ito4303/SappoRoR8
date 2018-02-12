@@ -164,6 +164,7 @@ mainfont: NotoSansCJKjp
 
 - 上のyamlヘッダは、LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
 
+<!--
 # 欧文フォントのサイズ
 
 なんだか欧文フォント(TeXGyreHeros)のサイズが小さい。
@@ -188,7 +189,7 @@ TeXGyreHerosフォントはデフォルトでは`scale=0.95`なので（美文�
 
 しかし今回は，数式フォントをサンセリフにするため、arevパッケージをつかったら、
 なぜかTeXGyreHerosも大きくなった。
-
+-->
 
 # luatexjaの設定
 
@@ -203,8 +204,9 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 
 # fragile関係のエラー{.fragile}
 
-\begin{Verbatim}[frame=single,fontsize=\footnotesize]
-! Illegal parameter number in definition of \beamer@doifinframe.
+\begin{Verbatim}[frame=single]
+! Illegal parameter number in definition of
+\beamer@doifinframe.
 \end{Verbatim}
 といったエラーが出るとき
 （LaTeXのfancyvrbパッケージのVerbatim環境をつかったときなど）
@@ -225,29 +227,30 @@ LaTeXなので、数式は問題なし。RStudioではプレビューも表示�
 \begin{lstlisting}[language=TeX]
 \[
 \Pr(x \mid \mu, \sigma) =
-\frac{1}{\sqrt{2\pi}\sigma}
-\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+  \frac{1}{\sqrt{2\pi}\sigma}
+  \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 \]
 \end{lstlisting}
 
 \[
 \Pr(x \mid \mu, \sigma) =
-\frac{1}{\sqrt{2\pi}\sigma}
-\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+  \frac{1}{\sqrt{2\pi}\sigma}
+  \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 \]
 
 
 # Rでグラフ
 
 Rなので、グラフも
-```{r, include=FALSE}
+```{r,include=FALSE}
 library(ggplot2)
 ```
 
 しかし、デフォルトでは はみでる。
-```{r fig,size="small",echo=TRUE}
+```{r fig,echo=TRUE}
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width,
-                      colour = Species)) + geom_point()
+                      colour = Species)) +
+  geom_point()
 print(p)
 ```
 
@@ -260,8 +263,8 @@ print(p)
 
 # サイズ調整
 
-チャンクオプションで`fig.width=6,fig.height=4`と`out.height="7cm"`を指定した。
-```{r fig_size,fig.width=6,fig.height=4,out.height="7cm",echo=FALSE}
+チャンクオプションで`fig.width=4,fig.height=3`と`out.height="5cm"`を指定した。
+```{r fig_size,fig.width=4,fig.height=3,out.height="5cm",echo=TRUE}
 print(p)
 ```
 
@@ -270,11 +273,10 @@ print(p)
 
 チャンクオプションで、 `dev="cairo_pdf"`を指定した。
 ```{r fig_font,fig.width=4,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
+spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
+         "イリス・ヴァージニカ")
 p + labs(x = "萼の長さ", y = "萼の幅") +
-  scale_colour_discrete(name = "種",
-                        labels = c("ヒオウギアヤメ", 
-                                   "イリス・ウェルシコロル",
-                                   "イリス・ヴァージニカ")) +
+  scale_colour_discrete(name = "種", labels = spc) +
   theme_grey(base_family = "NotoSansCJKjp-Regular")
 ```
 

@@ -5,14 +5,18 @@
 }
 
 %% Fonts
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{avant}
+\usepackage[scale=0.95]{zi4}
 \usepackage{arev}
 \usefonttheme[onlymath]{serif}
-\usepackage{fontspec}
+%\usepackage{fontspec}
 %\setmainfont[Ligatures=TeX]{TeXGyreTermes}
-\setmainfont[Scale=1.0]{TeXGyreHeros}
-\setsansfont[Scale=1.0]{TeXGyreHeros}
+%\setmainfont[Scale=1.0]{TeXGyreHeros}
+%\setsansfont[Scale=1.0]{TeXGyreHeros}
 %\setmonofont{Inconsolatazi4}
-\setmonofont{NotoSansMonoCJKjp}
+%\setmonofont{NotoSansMonoCJKjp}
 
 %% Japanese font
 \usepackage{luatexja-otf}
@@ -40,7 +44,8 @@
   frame = shadow,
   backgroundcolor = {\color[gray]{.95}},
   basicstyle = {\small\ttfamily},
-  breaklines = true
+  breaklines = true,
+  upquote = true
 }
 
 \usepackage{fancyvrb}
