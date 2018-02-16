@@ -63,13 +63,10 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 \includegraphics[width=9cm]{NewRmd.png}
 \end{center}
 
-<!--
-# なぜR Markdown
 
-- \Large RStudioで完結
-- \Large 作業を自動化
-- \Large コピー&ペーストを撲滅
--->
+# なぜR Markdown + beamer
+
+\LARGE RStudioだけで，数式も，コードも，グラフもすべて完結。
 
 
 # 用意したもの
@@ -115,24 +112,29 @@ title中の改行は‘|’をいれる。
 
 # 欧文フォントの設定{.fragile}
 
+`in_header`で指定したファイルで設定。
+
 \begin{lstlisting}[language=TeX]
+\usefonttheme[onlymath]{serif}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usefonttheme[onlymath]{serif}
-\usepackage[scale=1.0]{tgheros}
-\usepackage[scaled]{beramono}
+\usepackage[scale=1.0]{tgheros}  % Tex Gyre Heros
+\usepackage[scaled]{beramono}    % Bitstream Vera Mono
 \end{lstlisting}
 
-fontspecを使用すると、upquoteが有効にならず、コード中の引用符が「”」に
+fontspecを使用すると，upquoteが有効にならず，コードチャンク中の二重引用符が「”」に
 なってしまう。
 
 # 日本語フォントの設定{.fragile}
 
-本文にゴシック体フォントをつかうには、yamlヘッダで
+本文にゴシック体フォントをつかうには，yamlヘッダで
 \begin{lstlisting}
 mainfont: NotoSansCJKjp
 \end{lstlisting}
 などとするか（NotoSansCJKjpフォント使用の場合），
+
+- \small（上のyamlヘッダは，LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。）
+
 あるいは
 `in-header`で指定したファイルで，LaTeX環境の日本語フォントを指定するとよいみたい。
 \begin{lstlisting}[language=TeX]
@@ -141,7 +143,7 @@ mainfont: NotoSansCJKjp
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \end{lstlisting}
 
-- 上のyamlヘッダは，LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。
+
 
 
 # luatexjaの設定
@@ -157,7 +159,7 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 
 # fragile関係のエラー{.fragile}
 
-Verbatim環境やlstlisting環境をつかうと，
+fancyvrbパッケージのVerbatim環境や，listingsパッケージのlstlisting環境をつかうと，
 \begin{Verbatim}[frame=single,fontsize=\footnotesize]
 ! Illegal parameter number in definition of
 \beamer@doifinframe.
