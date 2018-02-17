@@ -44,10 +44,10 @@ http://kazutan.github.io/SappoRoR6/rmd_slide.html
 
 # その後
 
->- \Large revealjsをためてしてみた
-    - \Large なかなかよかった
+>- \Large revealjsをためてしてみた。
+    - \Large なかなかよかった。
 
->- \Large 次はR Markdown + Beamerでやってみよう
+>- \Large 次はR Markdown + Beamerでやってみよう。
 
 # Beamerとは
 
@@ -248,9 +248,9 @@ p + labs(x = "萼の長さ(cm)", y = "萼の幅(cm)") +
 
 # まとめ
 >- \Large CSSの知識があれば，revealjsの方が楽かも。
->- \Large でも，なんとかなる
->- \Large 先人の知恵を活用する
->- \Large いったん設定ができてしまえば，あとは楽？
+>- \Large でも，なんとかなる。
+>- \Large 先人の知恵を活用する。
+>- \Large いったん設定ができてしまえば，あとは楽?
 
 
 
