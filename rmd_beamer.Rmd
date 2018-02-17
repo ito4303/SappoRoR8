@@ -1,6 +1,6 @@
 ---
 title: |
-  | R Markdownとbeamerで
+  | R MarkdownとBeamerで
   | プレゼンテーション資料作成
 subtitle: "SappoRo.R #8 @ 北海学園大学"
 author: "伊東宏樹"
@@ -64,9 +64,10 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 \end{center}
 
 
-# なぜR Markdown + beamer
+# なぜR Markdown + Beamer
 
-\LARGE RStudioだけで，数式も，コードも，グラフもすべて完結。
+\LARGE RStudioだけで，数式も，Rコードも，  
+グラフもすべて完結。
 
 
 # 用意したもの
@@ -91,7 +92,7 @@ Beamerでプレゼンテーションファイルを作成するオプション�
 
 \begin{lstlisting}[basicstyle={\footnotesize\ttfamily}]
 title: |
-  | R Markdownとbeamerで
+  | R MarkdownとBeamerで
   | プレゼンテーション資料作成
 subtitle: "SappoRo.R #8 @ 北海学園大学"
 author: "伊東宏樹"
@@ -122,8 +123,9 @@ title中の改行は‘|’をいれる。
 \usepackage[scaled]{beramono}    % Bitstream Vera Mono
 \end{lstlisting}
 
-fontspecを使用すると，upquoteが有効にならず，コードチャンク中の二重引用符が「”」に
-なってしまう。
+\small luatex使用の場合，デフォルトのテンプレートでfontspecが呼ばれるが，
+そうするとupquoteが有効にならず，コードチャンク中の二重引用符が「”」に
+なってしまうようだ。
 
 # 日本語フォントの設定{.fragile}
 
@@ -131,7 +133,7 @@ fontspecを使用すると，upquoteが有効にならず，コードチャン�
 \begin{lstlisting}
 mainfont: NotoSansCJKjp
 \end{lstlisting}
-などとするか（NotoSansCJKjpフォント使用の場合），
+などとするか（上の例はNotoSansCJKjpフォント使用の場合），
 
 - \small（上のyamlヘッダは，LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。）
 
@@ -202,7 +204,8 @@ LaTeXなので，数式は問題なし。RStudioではプレビューも表示�
 
 # Rでグラフ
 
-Rなので，グラフも
+Rなので，グラフも。
+
 ```{r,include=FALSE}
 library(ggplot2)
 ```
@@ -232,7 +235,9 @@ print(p)
 
 # グラフの日本語フォント
 
-チャンクオプションで， `dev="cairo_pdf"`を指定した。
+チャンクオプションで， `dev="cairo_pdf"`を指定すると，日本語フォントの
+表示ができる。
+
 ```{r fig_font,fig.width=5,fig.height=2,out.height="4cm",dev="cairo_pdf",echo=TRUE}
 spc <- c("ヒオウギアヤメ", "イリス・ウェルシコロル",
          "イリス・ヴァージニカ")
