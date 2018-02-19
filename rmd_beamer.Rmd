@@ -129,23 +129,16 @@ title中の改行は‘|’をいれる。
 
 # 日本語フォントの設定{.fragile}
 
-本文にゴシック体フォントをつかうには，yamlヘッダで
-\begin{lstlisting}
-mainfont: NotoSansCJKjp
-\end{lstlisting}
-などとするか（上の例はNotoSansCJKjpフォント使用の場合），
+日本語フォントの設定は欧文フォントとは別になっている。
 
-- \small（上のyamlヘッダは，LaTeXソースでは`\setmainfont[]{NotoSansCJKjp}`に変換される。）
+この資料では，`in-header`で指定したファイル内で，以下のように
+設定した（ここではNotoフォント使用）。
 
-あるいは
-`in-header`で指定したファイルで，LaTeX環境の日本語フォントを指定するとよいみたい。
 \begin{lstlisting}[language=TeX]
 \usepackage{luatexja-otf}
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \end{lstlisting}
-
-
 
 
 # luatexjaの設定
