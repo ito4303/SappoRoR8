@@ -5,17 +5,13 @@
 }
 
 %% Fonts
-\usefonttheme[onlymath]{serif}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-%\usepackage{arev}
-\usepackage[scale=1.0]{tgheros}  % Tex Gyre Heros
-\usepackage[scaled]{beramono}    % Bitstream Vera Mono
+\setmonofont{AndaleMono}
 
 %% Japanese font
 \usepackage{luatexja-otf}
 \usepackage[match,deluxe,expert,noto-otf]{luatexja-preset} % Notoフォント使用
-\renewcommand{\kanjifamilydefault}{\gtdefault}
+\setmainjfont{NotoSansCJKjp}
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
 
 %%
 \setbeamerfont{title}{size=\huge, series=\bfseries}
