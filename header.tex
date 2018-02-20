@@ -1,5 +1,6 @@
-%% https://blog.miz-ar.info/2015/09/latex-hyperref-tips/
-%% https://tex.stackexchange.com/questions/24445/hyperref-lualatex-and-unicode-bookmarks-issue-garbled-page-numbers-in-ar-for-l
+%% PDFメタデータの文字化け防止
+% https://blog.miz-ar.info/2015/09/latex-hyperref-tips/
+% https://tex.stackexchange.com/questions/24445/hyperref-lualatex-and-unicode-bookmarks-issue-garbled-page-numbers-in-ar-for-l
 \hypersetup{%
   pdfencoding=auto
 }
@@ -9,8 +10,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 %\usepackage{arev}
-\usepackage[scale=1.0]{tgheros}  % Tex Gyre Heros
-\usepackage[scaled]{beramono}    % Bitstream Vera Mono
+\usepackage[scale=1.0]{tgheros}  % San serif font
+\usepackage[scaled]{beramono}    % Monospace font
 
 %% Japanese font
 \usepackage{luatexja-otf}
