@@ -155,12 +155,11 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 # fragile関係のエラー{.fragile}
 
 fancyvrbパッケージのVerbatim環境や，listingsパッケージのlstlisting環境をつかうと，
-\begin{Verbatim}[frame=single,fontsize=\footnotesize]
-! Illegal parameter number in definition of
-\beamer@doifinframe.
+\begin{Verbatim}[frame=single,fontsize=\scriptsize]
+! Illegal parameter number in definition of \beamer@doifinframe.
 \end{Verbatim}
 
-\begin{Verbatim}[frame=single,fontsize=\footnotesize]
+\begin{Verbatim}[frame=single,fontsize=\scriptsize]
 ! Missing \endcsname inserted.
 \end{Verbatim}
 といったエラーが出る場合がある。
