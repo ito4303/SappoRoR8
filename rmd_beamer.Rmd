@@ -31,6 +31,14 @@ knitr::opts_chunk$set(echo = FALSE)
 - researchmap: https://researchmap.jp/read0208767/
 
 
+# かかわっているプロジェクト
+
+- Bayesian Population Analysis using WinBUGSのStan移植
+    - \footnotesize https://github.com/stan-dev/example-models/tree/master/BPA
+    
+- Stanマニュアルの日本語への翻訳プロジェクト
+    - \footnotesize https://github.com/stan-ja/stan-ja
+
 # ありがとうぞうさん
 
 \begin{center}
