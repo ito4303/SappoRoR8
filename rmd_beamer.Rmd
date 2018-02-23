@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # かかわっているプロジェクト
 
-- Bayesian Population Analysis using WinBUGSのStan移植
+- ``Bayesian Population Analysis using WinBUGS''のStan移植
     - \footnotesize https://github.com/stan-dev/example-models/tree/master/BPA
     
 - Stanマニュアルの日本語への翻訳プロジェクト
@@ -131,9 +131,11 @@ title中の改行は‘|’をいれる。
 \usepackage[scaled]{beramono}    % Monospace font
 \end{lstlisting}
 
-\small luatex使用の場合，デフォルトのテンプレートでfontspecが呼ばれるが，
-そうするとupquoteが有効にならず，コードチャンク中の二重引用符が「”」に
-なってしまうようだ。
+fontencパッケージを使用するようにした。
+
+\small luatex使用の場合，デフォルトのbeamerテンプレートでfontspecパッケージが
+呼ばれるが，そうするとupquoteパッケージが有効にならず，コードチャンク中の
+二重引用符が「`"`」ではなく「`”`」になってしまうようだ。
 
 # 日本語フォントの設定{.fragile}
 
