@@ -8,7 +8,7 @@ date: "2018-02-24"
 output:
   beamer_presentation:
     theme: default          # テーマ
-    latex_engine: lualatex  # lualatexを使用
+    latex_engine: xelatex   # xelatexを使用
     keep_tex: true          # texソースをのこす
     includes:
       in_header: header.tex # header.texをよみこむ
@@ -115,7 +115,7 @@ date: "2018-02-24"
 output:
   beamer_presentation:
     theme: default          # テーマ
-    latex_engine: lualatex  # lualatexを使用
+    latex_engine: xelatex   # xelatexを使用
     keep_tex: true          # texソースをのこす
     includes:
       in_header: header.tex # header.texをよみこむ
@@ -140,7 +140,7 @@ title中の改行は‘|’をいれる。
 
 fontencパッケージを使用するようにした。
 
-\small luatex使用の場合，デフォルトのbeamerテンプレートでfontspecパッケージが
+\small xelatex使用の場合，デフォルトのbeamerテンプレートでmathspecパッケージが
 呼ばれるが，そうするとupquoteパッケージが有効にならず，コードチャンク中の
 二重引用符が「`"`」ではなく「`”`」になってしまうようだ。
 
@@ -152,12 +152,11 @@ fontencパッケージを使用するようにした。
 設定した（Notoフォント使用）。
 
 \begin{lstlisting}[language=TeX]
-\usepackage{luatexja-otf}
-\usepackage[match,deluxe,expert,noto-otf]{luatexja-preset}
-\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usepackage{zxjatype}
+\setCJKmainfont[Scale=1.0]{Noto Sans CJK JP}
 \end{lstlisting}
 
-
+<!--
 # luatexjaの設定
 
 luatexjaの公式ドキュメントがくわしい（当然）。
@@ -167,7 +166,7 @@ luatexjaの公式ドキュメントがくわしい（当然）。
 または
 
 - http://mirrors.ctan.org/macros/luatex/generic/luatexja/doc/luatexja-ja.pdf
-
+-->
 
 # fragile関係のエラー{.fragile}
 
