@@ -21,20 +21,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # 自己紹介
 
+\large
+
+森林の研究をしています。
+
 - Twitter: @monotropastrum
-
-- Blog: http://ito-hi.blog.so-net.ne.jp/
-
-- GitHub: https://github.com/ito4303
-    - \small 今回の資料 https://github.com/ito4303/SappoRoR8
-
 - researchmap: https://researchmap.jp/read0208767/
+- Blog: http://ito-hi.blog.so-net.ne.jp/
+- GitHub: https://github.com/ito4303
+    - \large この発表資料のファイル一式 https://github.com/ito4303/SappoRoR8
+
+
 
 
 # かかわっているプロジェクト
 
 - ``Bayesian Population Analysis using WinBUGS''のStan移植
     - \footnotesize https://github.com/stan-dev/example-models/tree/master/BPA
+    - 原本の日本語訳: 『BUGSで学ぶ階層モデリング入門---個体群のベイズ解析』（飯島勇人・伊東宏樹・深谷肇一・正木隆 訳, 共立出版）
     
 - Stanマニュアルの日本語への翻訳プロジェクト
     - \footnotesize https://github.com/stan-ja/stan-ja
@@ -92,7 +96,7 @@ RStudioだけで，数式も，Rコードも，
 
 ふつうにR Markdown
 
-↓のようにかいていく。
+RStudioで，下のようにかいていく。
 
 \begin{lstlisting}
 # タイトル
@@ -260,6 +264,7 @@ p + labs(x = "萼の長さ(cm)", y = "萼の幅(cm)") +
 
 >- CSSの知識があれば，revealjsの方が楽かも。
 >- でも，なんとかなる。
+>- ドキュメントをよむ。
 >- 先人の知恵を活用する。
 >- いったん設定ができてしまえば，あとは楽?
 
